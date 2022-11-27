@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Adam Asmaca</title>
+	<style type="text/css">
+
+		body{
+			background-color: #e5c50c;
+		}
+
+
+		.start{
+			margin-top: 30vmin;
+			width: 60vmin;
+			height: 20vmin;
+			border: 0px;
+			background-color: yellow;
+			font-size: 10vmin;
+		}
+
+		.title-txt{
+			font-size: 8vmin;
+		}
+		.word{
+
+		}
+		.save{}
+
+	</style>
+	<script type="text/javascript">
+		function letterQuery(letter){
+			if (letter.replace(' ', '').length == 0){
+				return(alert('Lütfen Sadece 1 Harf Giriniz!!'))
+			}
+		}
+	</script>
+</head>
+<body>
+	{% if alertMsg %}
+		<script type="text/javascript">
+			alert('{{ alertMsg }}');
+		</script>
+	{% endif %}
+	<div class="container">
+		<center><div class="title-txt">Adam Asmaca</div></center>
+		<form action="#" method="post">
+			{% if user_play == False %}
+				<center><input type="submit" class="start" name="start" value="Start"/></center>
+			{% else %}
+				<br>
+				<center><input type="text" name="word" class="word" id="word" placeholder="Harf Gir...">
+				<input type="submit" name="save" class="save" value="Kontrol et" onclick="letterQuery(document.getElementById('word').value);"></center>
+
+				<center><label>{{ char }}</label></center>
+				<center><img src="{{ img_url }}"  height="50%" width="50%"></center>
+			{% endif %}
+		</form>
+	</div>
+</body>
+</html>
